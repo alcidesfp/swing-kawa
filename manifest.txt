@@ -1,0 +1,2 @@
+Main-Class: main
+Class-Path: lib/kawa-1.12.jar
