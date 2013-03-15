@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="gui">
+<project default="src">
 
-  <!-- <target name="src" depends="gui"  -->
-  <!--         description="Compila los fuentes en Kawa"> -->
-    <!-- <java taskname="kawa" classname="kawa.repl" classpath=""/> -->
-  <!--   <java taskname="kawa"  -->
-  <!--         jar="/usr/local/share/java/kawa-1.13.jar"  -->
-  <!--         fork="true"> -->
-  <!--   </java> -->
-  <!-- </target> -->
+  <target name="src" depends="gui"
+          description="Compila los fuentes en Kawa">
+    <java taskname="kawa"
+          classname="kawa.repl"
+          failOnError="true"
+          fork="true">
+      <classpath>
+        <pathelement location="/usr/local/share/java/kawa-1.13.jar"/>
+        <pathelement path="."/>
+      </classpath>
+      <arg line="--main -C 'main.scm'"/>
+    </java>
+  </target>
 
   <target name="gui"
-          description="Compila las intefaces de usuario en Java">
+          description="Compila las interfaces de usuario en Java">
     <javac srcdir="." sourcepath="" includes="gui/*.java"
            includeAntRuntime="false"/>
 
