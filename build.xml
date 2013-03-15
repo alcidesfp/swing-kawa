@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="src">
 
+  <target name="dist" depends="jar">
+    <copy file="MyApp1.jar" todir="dist"/>
+    <copy todir="dist/lib">
+      <fileset dir="lib"/>
+    </copy>
+  </target> 
+
   <target name="jar" depends="src">
     <jar destfile="MyApp1.jar"
          basedir="."
@@ -44,6 +51,7 @@
     <delete verbose="true">
       <fileset dir="." includes="*.jar **/*.class"/>
     </delete>
+    <delete dir="dist"/>
   </target>
 
 </project>
