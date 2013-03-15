@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="src">
 
+  <target name="jar" depends="src">
+    <jar destfile="MyApp1.jar"
+         basedir="."
+         includes="*.class */*.class"
+         manifest="manifest.txt"/>
+  </target>
+
   <target name="src" depends="gui"
           description="Compila los fuentes en Kawa">
     <java taskname="kawa"
