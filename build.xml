@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="gui">
+
+  <!-- <target name="src" depends="gui"  -->
+  <!--         description="Compila los fuentes en Kawa"> -->
+    <!-- <java taskname="kawa" classname="kawa.repl" classpath=""/> -->
+  <!--   <java taskname="kawa"  -->
+  <!--         jar="/usr/local/share/java/kawa-1.13.jar"  -->
+  <!--         fork="true"> -->
+  <!--   </java> -->
+  <!-- </target> -->
+
+  <target name="gui"
+          description="Compila las intefaces de usuario en Java">
+    <javac srcdir="." sourcepath="" includes="gui/*.java"
+           includeAntRuntime="false"/>
+
+    <java taskname="kawa"
+          classname="kawa.repl"
+          failOnError="true"
+          fork="true">
+      <classpath>
+        <pathelement location="/usr/local/share/java/kawa-1.13.jar"/>
+        <pathelement path="."/>
+      </classpath>
+      <arg line="-C 'gui/MyApp.scm'"/>
+    </java>
+  </target>
+
+  <target name="clean"
+          description="Limpia los archivos binarios">
+    <delete verbose="true">
+      <fileset dir="." includes="*.jar **/*.class"/>
+    </delete>
+  </target>
+
+</project>
