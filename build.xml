@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="src">
 
+  <target name="run" depends="jar">
+    <java jar="MyApp1.jar" fork="true" failOnError="true" />
+  </target>
+
   <target name="dist" depends="jar">
     <copy file="MyApp1.jar" todir="dist"/>
     <copy todir="dist/lib">
