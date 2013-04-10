@@ -1,8 +1,9 @@
 ;; -*- coding: utf-8; mode: Scheme -*-
-(define-alias MyAppFrmUI gui.MyAppFrmUI)
+(require "MyAppFrm.scm")
+
 (define-simple-class MyApp (java.lang.Runnable)
   ;; members
-  (main-wnd ::MyAppFrmUI init: (MyAppFrmUI))
+  (main-wnd ::MyAppFrm init: (MyAppFrm))
   ;; methods
   ((run)  ;Implementa interfaz Runnable
    (main-wnd:setVisible #t)))

@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="src">
-
+  <!--  run  -->
   <target name="run" depends="jar">
     <java jar="MyApp1.jar" fork="true" failOnError="true" />
   </target>
-
+  <!-- dist  -->
   <target name="dist" depends="jar">
     <copy file="MyApp1.jar" todir="dist"/>
     <copy todir="dist/lib">
       <fileset dir="lib"/>
     </copy>
   </target> 
-
+  <!-- jar -->
   <target name="jar" depends="src">
     <jar destfile="MyApp1.jar"
          basedir="."
          includes="*.class */*.class"
          manifest="manifest.txt"/>
   </target>
-
+  <!-- src -->
   <target name="src" depends="gui"
           description="Compila los fuentes en Kawa">
     <java taskname="kawa"
@@ -26,15 +26,15 @@
           failOnError="true"
           fork="true">
       <classpath>
-        <pathelement location="/usr/local/share/java/kawa-1.13.jar"/>
+        <pathelement location="./lib/kawa.jar"/>
         <pathelement path="."/>
       </classpath>
       <arg line="--main -C 'main.scm'"/>
     </java>
   </target>
-
+  <!-- gui -->
   <target name="gui"
-          description="Compila las interfaces de usuario en Java">
+          description="Compila las interfaces de usuario en Java y Kawa">
     <javac srcdir="." sourcepath="" includes="gui/*.java"
            includeAntRuntime="false"/>
 
@@ -43,13 +43,13 @@
           failOnError="true"
           fork="true">
       <classpath>
-        <pathelement location="/usr/local/share/java/kawa-1.13.jar"/>
+        <pathelement location="./lib/kawa.jar"/>
         <pathelement path="."/>
       </classpath>
-      <arg line="-C 'gui/MyApp.scm'"/>
+      <arg line="-C gui/MyApp.scm"/>
     </java>
   </target>
-
+  <!-- clean -->
   <target name="clean"
           description="Limpia los archivos binarios">
     <delete verbose="true">

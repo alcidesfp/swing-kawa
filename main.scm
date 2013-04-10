@@ -1,3 +1,5 @@
 ;; -*- coding: utf-8; mode: Scheme -*-
-(include "gui/MyApp.scm")
-(java.awt.EventQueue:invokeLater (MyApp))
+(define-alias EventQueue java.awt.EventQueue)
+(define-alias MyApp gui.MyApp)
+
+(EventQueue:invokeLater (MyApp))
