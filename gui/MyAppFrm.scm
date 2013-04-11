@@ -1,7 +1,9 @@
 ;; -*- coding: utf-8; mode: Scheme -*-
+(define-alias MyAppFrmUI gui.MyAppFrmUI)
+(define-alias ActionEvent java.awt.event.ActionEvent)
 (define-alias showMsgDlg javax.swing.JOptionPane:showMessageDialog)
 
-(define-simple-class MyAppFrm (gui.MyAppFrmUI)
+(define-simple-class MyAppFrm (MyAppFrmUI)
   ;; methods
-  ((onMenuSalir evt :: java.awt.event.ActionEvent)
+  ((onMenuSalir evt ::ActionEvent)
    (showMsgDlg (this) "Salir desde Kawa")))
