@@ -20,7 +20,7 @@
   </target>
   <!-- src -->
   <target name="src" depends="gui"
-          description="Compila los fuentes en Kawa">
+          description="Compile Kawa sources">
     <java taskname="kawa"
           classname="kawa.repl"
           failOnError="true"
@@ -34,7 +34,7 @@
   </target>
   <!-- gui -->
   <target name="gui"
-          description="Compila las interfaces de usuario en Java y Kawa">
+          description="Compile user interfaces in Java & Kawa">
     <javac srcdir="." sourcepath="" includes="gui/*.java"
            includeAntRuntime="false"/>
 
@@ -51,7 +51,7 @@
   </target>
   <!-- clean -->
   <target name="clean"
-          description="Limpia los archivos binarios">
+          description="Clean binary files">
     <delete verbose="true">
       <fileset dir="." includes="*.jar **/*.class"/>
     </delete>
