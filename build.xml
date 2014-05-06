@@ -34,7 +34,7 @@
   </target>
   <!-- gui -->
   <target name="gui"
-          description="Compile user interfaces in Java & Kawa">
+          description="Compile user interfaces in Java and Kawa">
     <javac srcdir="." sourcepath="" includes="gui/*.java"
            includeAntRuntime="false"/>
 
