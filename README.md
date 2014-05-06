@@ -1,4 +1,4 @@
 swing-kawa
 ==========
 
-Aplicación Swing básica en Scheme Kawa
+Basic Swing application in Kawa Scheme.
