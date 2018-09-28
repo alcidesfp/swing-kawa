@@ -14,6 +14,6 @@
 (import (class javax.swing JFrame JLabel))
 
 (let ((f (JFrame "Título de la Ventana" defaultCloseOperation: JFrame:EXIT_ON_CLOSE)))
-  (f:add (javax.swing.JLabel "¡Hola a todos!"))
+  (f:add (JLabel "¡Hola a todos!"))
   (f:pack)
   (f:setVisible #t))
