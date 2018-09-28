@@ -11,9 +11,9 @@
 ;;   (.setVisible true))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define-alias JFrame javax.swing.JFrame)
+(import (class javax.swing JFrame JLabel))
 
-(let ((f (JFrame "Hola" defaultCloseOperation: JFrame:EXIT_ON_CLOSE)))
+(let ((f (JFrame "Título de la Ventana" defaultCloseOperation: JFrame:EXIT_ON_CLOSE)))
   (f:add (javax.swing.JLabel "¡Hola a todos!"))
   (f:pack)
   (f:setVisible #t))
